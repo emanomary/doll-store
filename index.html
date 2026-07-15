@@ -326,14 +326,18 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxSVjIUlQe4ONLQ0ce_M5Ksdt_Na4jn_mM_50cU507Dmj-LQdGKQaN-0GSEgZeF4GnHcA/exec';
 
         form.addEventListener('submit', e => {
-        e.preventDefault();
-        
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
+        e.preventDefault(); // منع تحديث الصفحة
+
+        // التأكد من إرسال البيانات عبر FormData
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: new FormData(form) // 👈 هذا السطر يجمع كل الحقول التي تحتوي على سمة name تلقائياً
+        })
+        .then(response => {
             alert('تم إرسال رسالتك بنجاح وسجلت في الملف!');
             form.reset();
-            })
-            .catch(error => console.error('Error!', error.message));
+        })
+        .catch(error => console.error('Error!', error.message));
         });
     </script>
 
