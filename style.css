@@ -522,6 +522,13 @@ button, input::placeholder , textarea , input{
     border: none;
     color: #FFF5F8;
     float: left;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.contact-div .btn:hover{
+    background-color: #333;
+    color: #FFF5F8;
 }
 
 .info {
