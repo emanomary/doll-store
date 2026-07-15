@@ -320,6 +320,21 @@
         goTo(0);
         start();
       })();
+
+        //   contact us
+        const form = document.getElementById('contact-form');
+        const scriptURL = 'ضع_رابط_WEB_APP_URL_هنا';
+
+        form.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+            alert('تم إرسال رسالتك بنجاح وسجلت في الملف!');
+            form.reset();
+            })
+            .catch(error => console.error('Error!', error.message));
+        });
     </script>
 
 </body>
